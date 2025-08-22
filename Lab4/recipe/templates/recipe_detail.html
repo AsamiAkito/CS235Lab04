@@ -10,9 +10,36 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="main">
-        <h1>Welcome to Recipes Web App</h1>
-        <p>Discover, share, and enjoy delicious recipes from around the world!</p>
+    <h1>{{ recipe.name }}</h1>
+
+        <div class="recipe-info">
+            <div class="recipe-description">
+                <h2>Description</h2>
+                <p>{{ recipe.description }}</p>
+                <img src="{{recipe.img_url }}" alt="recipe photo">
+            </div>
+            <div class="recipe-ingredients">
+                <h2>Ingredients</h2>
+                <ul>
+                    {% for item in recipe.ingredients %}
+                    <li> {{ item }} </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+        <div class="recipe-instructions">
+            <h2>Instructions</h2>
+            <ol>
+                {% for step in recipe.instructions %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+        <div class="main">
+            <h1>Welcome to Recipes Web App</h1>
+            <p>Discover, share, and enjoy delicious recipes from around the world!</p>
+        </div>
     </div>
 
     <div class="content">
